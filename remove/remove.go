@@ -31,33 +31,3 @@ func main() {
 	}
 	fixedtextwriter.Flush()
 }
-
-/*
- fileEntry(filepath string, workers int, cdn_fast probes.Fastlyprobe, cdn_cloud probes.Cloudflareprobe, cdn_max probes.MaxCDN) TotalTestResult {
-	domains, err := os.Open(filepath)
-	if err != nil {
-		log.Fatal(err.Error())
-	}
-
-	domain := bufio.NewScanner(domains)
-
-	jobs := make(chan string, 300)
-	results := make(chan ProbeResult, 1000000)
-
-	log.Printf("Running with %d goroutine workers\n", workers)
-
-	for x := 0; x < workers; x++ {
-		go func() {
-			worker(jobs, results, cdn_fast, cdn_cloud, cdn_max)
-		}()
-	}
-
-	log.Println("workers started")
-	count := 0
-	for domain.Scan() {
-		jobs <- domain.Text()
-		count++
-	}
-	close(jobs)
-
-*/
